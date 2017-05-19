@@ -50,6 +50,10 @@ function mdEditDialog($compile, $controller, $document, $mdUtil, $q, $rootScope,
   };
   
   function build(template, options) {
+    if(options.wrapTemplate) {
+        template = '<md-edit-dialog>' + template + '</md-edit-dialog>';
+    }
+
     var scope = $rootScope.$new();
     var element = $compile(template)(scope);
     var backdrop = $mdUtil.createBackdrop(scope, 'md-edit-dialog-backdrop');
